@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>LangChain + ChromaDB (Local)</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f8fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 700px;
+            margin: 5% auto;
+            background: white;
+            padding: 40px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        input[type="text"] {
+            padding: 15px;
+            font-size: 16px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            width: 100%;
+        }
+
+        button {
+            padding: 12px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .response {
+            margin-top: 30px;
+            background-color: #f0f2f5;
+            padding: 20px;
+            border-radius: 10px;
+            white-space: pre-wrap;
+            font-size: 16px;
+            line-height: 1.5;
+            color: #222;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Ask Your Knowledge Base</h1>
+        <form method="POST">
+            <input type="text" name="query" placeholder="Ask a question..." required>
+            <button type="submit">Submit</button>
+        </form>
+
+        {% if response %}
+            <div class="response">
+                <strong>Response:</strong><br><br>
+                {{ response }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
